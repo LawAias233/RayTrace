@@ -1,0 +1,2 @@
+D:\Code\计算机图形学\RayTracing\Debug\RayTracing.exe
+D:\Code\计算机图形学\RayTracing\Debug\RayTracing.pdb

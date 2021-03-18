@@ -1,0 +1,33 @@
+﻿  main.cpp
+D:\Code\计算机图形学\RayTracing\main.cpp(20,36): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+D:\Code\计算机图形学\RayTracing\main.cpp(51,49): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+D:\Code\计算机图形学\RayTracing\main.cpp(52,49): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+D:\Code\计算机图形学\RayTracing\main.cpp(53,49): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+D:\Code\计算机图形学\RayTracing\main.cpp(74,57): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+D:\Code\计算机图形学\RayTracing\main.cpp(75,57): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+D:\Code\计算机图形学\RayTracing\main.cpp(76,57): warning C4244: “=”: 从“double”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=unsigned char
+          ]
+  RayTracing.vcxproj -> D:\Code\计算机图形学\RayTracing\Debug\RayTracing.exe
