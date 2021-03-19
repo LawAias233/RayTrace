@@ -35,3 +35,4 @@ inline double clamp(double x, double min, double max)
 //Common Headers
 #include "Ray.h"
 #include "vec3.h"
+#include "Hittable.h"

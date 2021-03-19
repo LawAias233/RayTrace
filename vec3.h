@@ -1,5 +1,7 @@
 #pragma once
 
+#include "rtweekend.h"
+
 #include <math.h>
 #include <iostream>
 class Vec3;
@@ -50,6 +52,22 @@ public:
 
 	double length() const {
 		return std::sqrt(length_squared());
+	}
+
+	bool near_zero() const {
+		// Return true if the vector is close to zero in all dimensions.
+		const auto s = 1e-8;
+		return (fabs(d[0]) < s) && (fabs(d[1]) < s) && (fabs(d[2]) < s);
+	}
+
+	inline static Vec3 random()
+	{
+		return Vec3(random_double(), random_double(), random_double());
+	}
+	
+	inline static Vec3 random(double min, double max)
+	{
+		return Vec3(random_double(min,max), random_double(min,max), random_double(min,max));
 	}
 };
 
@@ -105,6 +123,32 @@ inline Vec3 cross(const Vec3& u, const Vec3& v)
 inline Vec3 normalized(Vec3 v)
 {
 	return v / v.length();
+}
+
+Vec3 random_in_unit_sphere() {
+	while (true) {
+		auto p = Vec3::random(-1, 1);
+		if (p.length_squared() >= 1) continue;
+		return p;
+	}
+}
+
+Vec3 random_unit_vector()
+{
+	return normalized(random_in_unit_sphere());
+}
+
+Vec3 random_in_hemisphere(const Vec3& normal) {
+	Vec3 in_unit_sphere = random_in_unit_sphere();
+	if (dot(in_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
+		return in_unit_sphere;
+	else
+		return -in_unit_sphere;
+}
+
+Vec3 reflect(const Vec3& v, const Vec3& n)
+{
+	return v - 2 * n * dot(v, n);
 }
 
 inline void output_color(std::ostream& out, Color cor, int samples_per_pixel)
