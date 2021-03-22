@@ -30,18 +30,23 @@ int main()
 
 	//World
 	Hittable_list world;
-	auto material_ground = std::make_shared<Lambertian>(Color(0.8, 0.8, 0.0)); //r+g = yellow ,因此地面偏黄
-	auto material_center = std::make_shared<Lambertian>(Color(0.7, 0.3, 0.3)); //r的比例高，因此偏红色
-	auto material_left = std::make_shared<Metal>(Color(0.8, 0.8, 0.8), 0.3);
-	auto material_right = std::make_shared<Metal>(Color(0.8, 0.6, 0.2), 1);
+
+	auto material_ground = std::make_shared<Lambertian>(Color(0.8, 0.8, 0.0));
+	auto material_center = std::make_shared<Lambertian>(Color(0.1, 0.2, 0.5));
+	auto material_left = std::make_shared<Dielectric>(1.5);
+	auto material_right = std::make_shared<Metal>(Color(0.8, 0.6, 0.2), 0.0);
+	//auto material_123 = std::make_shared<Metal>(Color(0.8, 0.6, 0.2), 0.0);
 
 	world.add(std::make_shared<Sphere>(Point3(0.0, -100.5, -1.0), 100.0, material_ground));
 	world.add(std::make_shared<Sphere>(Point3(0.0, 0.0, -1.0), 0.5, material_center));
 	world.add(std::make_shared<Sphere>(Point3(-1.0, 0.0, -1.0), 0.5, material_left));
+	world.add(std::make_shared<Sphere>(Point3(-1.0, 0.0, -1.0), -0.45, material_left));
 	world.add(std::make_shared<Sphere>(Point3(1.0, 0.0, -1.0), 0.5, material_right));
+	//world.add(std::make_shared<Sphere>(Point3(0.0, 0.0, -1.0), 0.5, material_123));
 
 	//Camera
-	Camera cam(aspect_ratio);
+	Camera cam(Point3(-2, 2, 1), Point3(0, 0, -1), Vec3(0, 1, 0), 90, aspect_ratio);
+	//Camera cam(Point3(0, 0, 1), Point3(0, 0, -1), Vec3(0, 1, 0), 90, aspect_ratio);
 	
 	//Render
 	int aa(0);
